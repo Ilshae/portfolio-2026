@@ -1,44 +1,53 @@
-import { Github, Linkedin } from 'lucide-react';
+import GithubIcon from './github-icon';
+import LinkedinIcon from './linkedin-icon';
+
+type SocialKey = 'github' | 'linkedin';
+
+const SOCIALS: {
+  key: SocialKey;
+  label: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}[] = [
+  {
+    key: 'github',
+    label: 'GitHub',
+    Icon: GithubIcon,
+  },
+  {
+    key: 'linkedin',
+    label: 'LinkedIn',
+    Icon: LinkedinIcon,
+  },
+];
 
 type SocialIconsProps = {
-  links?: {
-    github?: string;
-    linkedin?: string;
-    website?: string;
-    instagram?: string;
-  };
+  links?: Partial<Record<SocialKey, string>>;
+  className?: string;
 };
 
 const linkCls =
-  'inline-flex items-center justify-center size-8 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition';
+  'inline-flex items-center justify-center size-8 rounded-md text-slate-400 hover:text-white hover:bg-[#0b1420]/40 transition';
 
-export function SocialIcons({ links }: SocialIconsProps) {
+export function SocialIcons({ links, className }: SocialIconsProps) {
   if (!links) return null;
 
   return (
-    <div className="mt-14 flex items-center gap-3">
-      {links.github && (
+    <div
+      className={`mt-14 flex items-center gap-3${className ? ` ${className}` : ''}`}
+      aria-label="Social links"
+    >
+      {SOCIALS.filter(({ key }) => links[key]).map(({ key, label, Icon }) => (
         <a
-          href={links.github}
+          key={key}
+          href={links[key] as string}
           target="_blank"
           rel="noreferrer"
           className={linkCls}
-          aria-label="GitHub"
+          aria-label={label}
         >
-          <Github className="size-4" />
+          <Icon className="size-4" />
         </a>
-      )}
-      {links.linkedin && (
-        <a
-          href={links.linkedin}
-          target="_blank"
-          rel="noreferrer"
-          className={linkCls}
-          aria-label="LinkedIn"
-        >
-          <Linkedin className="size-4" />
-        </a>
-      )}
+      ))}
     </div>
   );
 }
