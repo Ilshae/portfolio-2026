@@ -29,13 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   { label: 'Projects', href: '#projects' },
                 ]}
                 socials={{
-                  github: 'https://github.com/yourname',
-                  linkedin: 'https://www.linkedin.com/in/yourname/',
-                  website: 'https://your.site',
-                  instagram: 'https://instagram.com/yourname',
+                  github: 'https://github.com/ilshae',
+                  linkedin: 'https://www.linkedin.com/in/pruszynska/',
                 }}
               />
-
               <main className="py-16">{children}</main>
             </div>
           </div>

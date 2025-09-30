@@ -1,4 +1,4 @@
-import { Github, Linkedin, Globe, Instagram } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 type SocialIconsProps = {
   links?: {
@@ -37,28 +37,6 @@ export function SocialIcons({ links }: SocialIconsProps) {
           aria-label="LinkedIn"
         >
           <Linkedin className="size-4" />
-        </a>
-      )}
-      {links.website && (
-        <a
-          href={links.website}
-          target="_blank"
-          rel="noreferrer"
-          className={linkCls}
-          aria-label="Website"
-        >
-          <Globe className="size-4" />
-        </a>
-      )}
-      {links.instagram && (
-        <a
-          href={links.instagram}
-          target="_blank"
-          rel="noreferrer"
-          className={linkCls}
-          aria-label="Instagram"
-        >
-          <Instagram className="size-4" />
         </a>
       )}
     </div>
