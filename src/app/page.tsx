@@ -4,20 +4,32 @@ import { experienceItems } from '@/components/experience/experience-items';
 
 export default function Page() {
   return (
-    <section className="mx-auto max-w-3xl space-y-20">
-      <About />
+    <main className="mx-auto max-w-3xl space-y-20">
+      <section id="about" aria-label="About Ingrid Pruszyńska">
+        <About />
+      </section>
 
-      <div id="experience" className="scroll-mt-24">
-        <h2 className="text-2xl font-bold text-white">Experience</h2>
-        {experienceItems.map((item) => (
-          <Experience {...item} key={item.id} />
-        ))}
-      </div>
+      <section id="experience" aria-label="Experience">
+        {experienceItems.length > 0 ? (
+          <ul className="mt-8 space-y-8">
+            {experienceItems.map((item) => (
+              <li key={item.id}>
+                <Experience {...item} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div role="status" className="mt-8 text-slate-300">
+            No experience items to show yet.
+          </div>
+        )}
+      </section>
 
-      <div id="projects" className="scroll-mt-24">
-        <h2 className="text-2xl font-bold text-white">Projects</h2>
-        <p className="mt-4 text-slate-300">Coming soon…</p>
-      </div>
-    </section>
+      <section id="projects" aria-label="Projects">
+        <div role="status" className="mt-4 text-slate-300">
+          Coming soon…
+        </div>
+      </section>
+    </main>
   );
 }

@@ -1,7 +1,6 @@
 export default function About() {
   return (
     <section id="about" className="scroll-mt-24">
-      <h2 className="text-2xl font-bold text-white">About</h2>
       <div className="mt-4 space-y-4 text-slate-300 leading-relaxed">
         <p>
           Front-end developer with experience implementing, and testing UI applications for network
