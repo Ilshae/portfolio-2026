@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Separator } from '@/components/ui/separator';
 
 export type NavLinkProps = {
   href: `#${string}`;
@@ -11,20 +10,22 @@ export type NavLinkProps = {
 export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
   ({ href, children, className, ariaLabel, ...anchorProps }, ref) => {
     return (
-      <div className={className}>
-        <Separator className="w-24 bg-[#0b1420]/40" />
-        <a
-          href={href}
-          ref={ref}
-          aria-label={ariaLabel}
-          className="mt-2 block text-xs font-semibold tracking-[0.2em] text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
-          {...anchorProps}
-        >
+      <a
+        href={href}
+        ref={ref}
+        aria-label={ariaLabel}
+        className="group flex items-center py-3 focus-visible:outline-none"
+        {...anchorProps}
+      >
+        <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+        <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
           {children}
-        </a>
-      </div>
+        </span>
+      </a>
     );
   },
 );
+
+NavLink.displayName = 'NavLink';
 
 export default NavLink;

@@ -1,6 +1,8 @@
+'use client';
+
 import * as React from 'react';
-import { NavLink } from '@/components/nav-link/nav-link';
 import { SocialIcons } from '@/components/social-icons/social-icons';
+import { NavLink } from '@/components/nav-link/nav-link';
 
 export type SidebarProps = {
   name: string;
@@ -20,22 +22,26 @@ export const Sidebar: React.FC<SidebarProps> = function Sidebar({
 }) {
   return (
     <aside
-      className={`py-16 pr-6 border-r border-[#0b1420]/40 ${className ?? ''}`}
+      className={`sticky top-0 h-screen pt-16 ${className ?? ''}`}
       aria-label="Sidebar"
       {...rest}
     >
-      <div className="sticky top-10">
-        <h1 className="text-4xl font-extrabold tracking-tight text-white">{name}</h1>
-        <p className="mt-1 text-sm text-slate-400">{title}</p>
+      <div className="space-y-4">
+        <h1 className="text-5xl font-extrabold tracking-tight text-white">{name}</h1>
+        <h2 className="text-xl leading-7">{title}</h2>
+      </div>
 
-        <nav className="mt-10 space-y-5" aria-label="Section navigation">
+      <nav className="mt-16" aria-label="Section navigation">
+        <ul className="w-max">
           {sections.map((section) => (
-            <NavLink key={section.href} href={section.href}>
-              {section.label.toUpperCase()}
-            </NavLink>
+            <li key={section.href}>
+              <NavLink href={section.href}>{section.label}</NavLink>
+            </li>
           ))}
-        </nav>
+        </ul>
+      </nav>
 
+      <div className="mt-auto pt-16">
         <SocialIcons links={socials} />
       </div>
     </aside>
