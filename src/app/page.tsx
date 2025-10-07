@@ -4,7 +4,7 @@ import { experienceItems } from '@/components/experience/experience-items';
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-3xl space-y-20 min-h-screen">
+    <main className="space-y-20 min-h-screen">
       <section id="about" aria-label="About Ingrid Pruszyńska">
         <About />
       </section>
