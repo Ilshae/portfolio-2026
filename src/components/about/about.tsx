@@ -1,9 +1,9 @@
 import React from 'react';
 
 const paragraphs = [
-  `Front-end developer with experience implementing and testing UI applications for network management. Skilled in creating reusable libraries such as advanced grids and search components used across multiple repositories.`,
-  `Strong background in team leadership, including mentoring, code reviews, and coordinating with testers, designers, external developer teams, and product owners to deliver high-quality features on time. Experienced in issue resolution and maintaining clear technical documentation.`,
-  `In my spare time you’ll usually find me climbing, reading, running obstacle course races, or hanging out with friends over tabletop games.`,
+  'Front-End Developer with hands-on experience building, optimizing, and testing UI applications for network management systems. Proficient in developing scalable, reusable component libraries — including advanced data grids, search interfaces, and shared UI modules leveraged across multiple projects and repositories.',
+  'A proven collaborator and team lead, skilled in mentoring engineers, conducting code reviews, and coordinating cross-functional efforts with designers, QA, external development teams, and product owners to deliver high-quality, user-focused features on schedule. Strong track record in debugging, performance tuning, and maintaining clear, maintainable documentation.',
+  'Outside of work, I’m passionate about climbing, reading, obstacle course racing, and tabletop games with friends.',
 ];
 
 export default function About() {
