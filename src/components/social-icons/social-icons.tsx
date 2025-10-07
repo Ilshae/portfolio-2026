@@ -26,7 +26,7 @@ type SocialIconsProps = {
 };
 
 const linkCls =
-  'inline-flex items-center justify-center size-8 rounded-md text-slate-400 hover:text-white hover:bg-[#0b1420]/40 transition';
+  'inline-flex items-center justify-center size-12 rounded-md text-slate-400 hover:text-white hover:bg-[#0b1420]/40 transition';
 
 export function SocialIcons({ links, className }: SocialIconsProps) {
   if (!links) return null;
@@ -45,7 +45,7 @@ export function SocialIcons({ links, className }: SocialIconsProps) {
           className={linkCls}
           aria-label={label}
         >
-          <Icon className="size-4" />
+          <Icon className="size-6" />
         </a>
       ))}
     </div>

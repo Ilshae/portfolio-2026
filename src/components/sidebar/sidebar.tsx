@@ -48,28 +48,30 @@ export const Sidebar: React.FC<SidebarProps> = function Sidebar({
 
   return (
     <aside
-      className={`sticky top-0 h-screen pt-16 ${className ?? ''}`}
+      className={`sticky top-0 h-screen pt-16 flex flex-col ${className ?? ''}`}
       aria-label="Sidebar"
       {...rest}
     >
-      <div className="space-y-4">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white">{name}</h1>
-        <h2 className="text-xl leading-7">{title}</h2>
+      <div>
+        <div className="space-y-4">
+          <h1 className="text-5xl font-extrabold tracking-tight text-white">{name}</h1>
+          <h2 className="text-xl leading-7">{title}</h2>
+        </div>
+
+        <nav className="mt-16" aria-label="Section navigation">
+          <ul className="w-max">
+            {sections.map((section) => (
+              <li key={section.href}>
+                <NavLink href={section.href} isActive={activeSection === section.href}>
+                  {section.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
-      <nav className="mt-16" aria-label="Section navigation">
-        <ul className="w-max">
-          {sections.map((section) => (
-            <li key={section.href}>
-              <NavLink href={section.href} isActive={activeSection === section.href}>
-                {section.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className="mt-auto pt-16">
+      <div className="mt-auto pb-16">
         <SocialIcons links={socials} />
       </div>
     </aside>
