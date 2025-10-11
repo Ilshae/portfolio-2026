@@ -1,6 +1,8 @@
 import About from '@/components/about/about';
 import Experience from '@/components/experience/experience';
 import { experienceItems } from '@/components/experience/experience-items';
+import { Project } from '@/components/projects/project';
+import { projectItems } from '@/components/projects/project-items';
 
 export default function Page() {
   return (
@@ -11,7 +13,7 @@ export default function Page() {
 
       <section id="experience" aria-label="Experience">
         {experienceItems.length > 0 ? (
-          <ul className="mt-8 space-y-8">
+          <ul className="group/list mt-8 space-y-8">
             {experienceItems.map((item) => (
               <li key={item.id}>
                 <Experience {...item} />
@@ -26,9 +28,19 @@ export default function Page() {
       </section>
 
       <section id="projects" aria-label="Projects">
-        <div role="status" className="mt-4 text-slate-300">
-          Coming soon…
-        </div>
+        {projectItems.length > 0 ? (
+          <ul className="group/list space-y-8">
+            {projectItems.map((item) => (
+              <li key={item.id} className="mb-12">
+                <Project {...item} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div role="status" className="mt-8 text-slate-300">
+            No projects to show yet.
+          </div>
+        )}
       </section>
     </main>
   );
